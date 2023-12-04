@@ -18,8 +18,8 @@ ui <- fluidPage(
       fileInput("second_dataset", "Choose your second dataset",
                 accept = c(".csv")),
       textInput("plot_title", "Enter Plot Title", ""),
-      textInput("x_axis_label", "Enter X-Axis Label", "Pascal normalized"),
-      textInput("y_axis_label", "Enter Y-Axis Label", "Java normalized"),
+      textInput("x_axis_label", "Enter X-Axis Label", "Dataset 1"),
+      textInput("y_axis_label", "Enter Y-Axis Label", "Dataset 2"),
       actionButton("submit_button", "Submit")
     ),
     mainPanel(
@@ -31,18 +31,16 @@ ui <- fluidPage(
 # Define server logic
 server <- function(input, output) {
   # Read data based on user input
-  pascal_normalized <- reactive({
+  data_table1 <- reactive({
     req(input$first_dataset)
     data1 = read.table(input$first_dataset$datapath, sep = "\t", row.names = 1)
     colnames(data1) = data1[1,]
     data1 = data.frame(sapply(data1[-1,], as.numeric))
     data1
-    #data1 = data.frame(sapply(pascal_normalized[-1,], as.numeric))
-    #head(pascal_normalized)
     
   })
   
-  java_normalized <- reactive({
+  data_table2 <- reactive({
     req(input$second_dataset)
     data2 = read.csv(input$second_dataset$datapath, row.names = 1)
     data2
@@ -51,8 +49,8 @@ server <- function(input, output) {
   observeEvent(input$submit_button, {
     output$heatmap <- renderPlot({
       # Use the reactive data objects
-      pascal_data <- pascal_normalized()
-      java_data <- java_normalized()
+      pascal_data <- data_table1()
+      java_data <- data_table2()
       
       #perform cross-correlation
       correlation_matrix <- round(cor(pascal_data, java_data), 2)

@@ -8,6 +8,6 @@ Explore my curated collection of R Shiny applications designed for small yet imp
 
 #### Visualization of User Interface
 
-1. Cross- Correlaion Plotter
+1. Cross- Correlation Plotter
   ![alt text](https://github.com/sanmatidugad/RShiny/blob/main/UI_Examples/Cross_Correlation_Example.png)
 

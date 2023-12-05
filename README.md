@@ -5,3 +5,9 @@ Explore my curated collection of R Shiny applications designed for small yet imp
 |-----------|--------------|
 |cross_correlation_plotter| Visualize Cross-correlation between two dataframes|
 
+
+#### Visualization of User Interface
+
+1. Cross- Correlaion Plotter
+  ![alt text](https://github.com/sanmatidugad/RShiny/blob/main/UI_Examples/Cross_Correlation_Example.png)
+

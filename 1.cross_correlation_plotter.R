@@ -2,7 +2,7 @@
 #if (!require("shiny")) install.packages("shiny")
 #if (!require("heatmap.2")) install.packages("gplots")
 
-library(shiny)
+library(shiny) 
 library(gplots)
 
 # Define UI
